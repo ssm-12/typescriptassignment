@@ -89,7 +89,28 @@ var clsYoutube = /** @class */ (function () {
         this.getAllComment = function () {
             return _this.comments;
         };
-        //Method that will gather the info of related videos
+        //Method to add like
+        this.alterLikes = function (operation) {
+            if (operation == "+") {
+                _this.likes++;
+            }
+            else if (operation == "-") {
+                _this.likes--;
+            }
+        };
+        //Method to add dislike
+        this.alterDislike = function (operation) {
+            if (operation == "+") {
+                _this.dislikes++;
+            }
+            else if (operation == "-") {
+                _this.dislikes--;
+            }
+        };
+        //Method to increase view count for this video
+        this.increaseViewCount = function () {
+            _this.totalViews++;
+        };
         //This is private method as this method is not meant for others to access
         this.generateRelatedVideosList = function () {
             console.log("\n**Related videos list will be created here, and will be assigned to this.relatedVideos\n\n\n");
@@ -176,3 +197,17 @@ if (videoInfo.comments != undefined) {
 //Getting the latest comment using index
 console.log("\nFetching the latest comment by index  :   \n");
 console.log(objYoutube.getSpecificComment(videoInfo.comments.length - 1).getComment());
+//Manupulating likes and dislikes of the video
+console.log("\nAdding 1 like to the video  :    \n");
+objYoutube.alterLikes("+");
+videoInfo = objYoutube.getVideoInfo();
+console.log("Updated Count of Likes is  :   " + videoInfo.likes);
+console.log("\nDecreasing the dislikes for this video by 1  :    \n");
+objYoutube.alterDislike("-");
+videoInfo = objYoutube.getVideoInfo();
+console.log("Updated Count of Dislikes is  :   " + videoInfo.dislikes);
+//Increasing the view count for this video
+console.log("\nIncreasing the view count for this video by 1  :    \n");
+objYoutube.increaseViewCount();
+videoInfo = objYoutube.getVideoInfo();
+console.log("Updated total number of views  :   " + videoInfo.totalViews);

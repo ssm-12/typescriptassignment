@@ -1,13 +1,17 @@
 //Facebook Classes - Starts Here
 
 class clsProfileAboutSection {
-    private readonly mainCategories:string[] = ["Work & Education", "Places", "Contact & Basic Info", 
-                                    "Family & Relationships", "Details About You", "Life Events"];
     
-    //Object containing all basic data
-    private basicInfo = {
-        
-    };
+    //Contact & Basic Info related variables
+    private firstName :string;
+    private lastName :string;
+    private dateOfBirth :[number, number, number]; //[Day, Month, Year]
+    private gender :string;
+    private knownLanguages :string[];
+    private email :string;
+    private contactNumber :number[];
+    private interestedIn :string[];
+    private 
 
 }
 
